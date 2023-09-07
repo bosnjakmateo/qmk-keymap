@@ -10,7 +10,7 @@ jobs:
       - name: Install QMK
         run: python3 -m pip install --user qmk
       - name: QMK setup
-        run: qmk setup qmk/qmk_firmware
+        run: qmk setup https://github.com/qmk/qmk_firmware.git
       - name: Test
         run: qmk compile -kb clueboard/66/rev3 -km default
 #      - name: Upload compiled firmware (build artifact)
