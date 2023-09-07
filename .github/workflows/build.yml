@@ -22,8 +22,8 @@ jobs:
       - name: Upload compiled firmware (build artifact)
         uses: actions/upload-artifact@v2
         with:
-          name: Keychron K6 QMK Firmware
-          path: .build/splitkb_aurora_sweep_rev1_default.hex
+          name: Aurora sweep
+          path: qmk_firmware/splitkb_aurora_sweep_rev1_default.hex
       - name: Upload compiled firmware (tagged release)
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
