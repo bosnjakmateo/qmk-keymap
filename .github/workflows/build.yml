@@ -7,30 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Clone SonixQMK
-        run: git clone https://github.com/qmk/qmk_firmware.git
-      - name: Install qmk deps
-        run: cd qmk_firmware && ./util/qmk_install.sh && python3 -m pip install qmk
-      - name: fix gcc
-        run: sudo bash .github/scripts/update-gcc10-ubuntu.sh
-      - name: Install git submodules
-        run: cd qmk_firmware && make git-submodule
-      - name: Set user keymap
-        run: qmk config user.keymap=bosnjakmateo
-      - name: Set user keyboard
-        run: qmk config user.keyboard=splitkb/aurora/sweep/rev1
-      - name: Copy custom keymaps
-        run: cp -rp keyboards/splitkb/aurora/sweep/keymaps qmk_firmware/keyboards/splitkb/aurora/sweep/keymaps
-      - name: Compile firmware
-        run: qmk compile
-      - name: Upload compiled firmware (build artifact)
-        uses: actions/upload-artifact@v2
-        with:
-          name: Keychron K6 QMK Firmware
-          path: qmk_firmware/splitkb_aurora_sweep_rev1_bosnjakmateo.hex
-      - name: Upload compiled firmware (tagged release)
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            qmk_firmware/splitkb_aurora_sweep_rev1_bosnjakmateo.hex
+      - name: Install QMK
+        run: python3 -m pip install --user qmk
+      - name: Install community package
+        run: apt -S qmk
+      - name: QMK setup
+        run: qmk setup qmk/qmk_firmware
+      - name: Test
+        run: qmk compile -kb clueboard/66/rev3 -km default
+#      - name: Upload compiled firmware (build artifact)
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Keychron K6 QMK Firmware
+#          path: qmk_firmware/splitkb_aurora_sweep_rev1_bosnjakmateo.hex
+#      - name: Upload compiled firmware (tagged release)
+#        uses: softprops/action-gh-release@v1
+#        if: startsWith(github.ref, 'refs/tags/')
+#        with:
+#          files: |
+#            qmk_firmware/splitkb_aurora_sweep_rev1_bosnjakmateo.hex
