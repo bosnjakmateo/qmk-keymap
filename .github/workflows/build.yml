@@ -20,7 +20,7 @@ jobs:
       - name: Set user keyboard
         run: qmk config user.keyboard=splitkb/aurora/sweep/rev1
       - name: Copy custom keymaps
-        run: cp -rp keyboards/splitkb/aurora/sweep/keymaps qmk_firmware/keyboards/aurora/sweep/keymaps
+        run: cp -rp keyboards/splitkb/aurora/sweep/keymaps qmk_firmware/keyboards/splitkb/aurora/sweep/keymaps
       - name: Compile firmware
         run: qmk compile
       - name: Upload compiled firmware (build artifact)
