@@ -16,7 +16,7 @@ jobs:
       - name: Install git submodules
         run: cd qmk_firmware && make git-submodule
       - name: Copy custom keymaps
-        run: cp -rp keyboards/splitkb/aurora/sweep/keymaps qmk_firmware/keyboards/splitkb/aurora/sweep/keymaps
+        run: cp -rp keymap qmk_firmware/keyboards/splitkb/aurora/sweep/keymaps
       - name: Compile firmware
         run: cd qmk_firmware && make splitkb/aurora/sweep/rev1:default
       - name: Upload compiled firmware (build artifact)
