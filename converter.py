@@ -74,6 +74,23 @@ for i in range(34):
         x = str(offset_x)
 
     key = '[{rx: ' + x + ', ry: ' + y + ', t:"#c100ff\n#0058ff\n#ff0303\n#22851e\n\n\n\n\n\n#000000",f:3}, "' + fnc_sym + '\n' + ext_sym + '\n' + num_sym + '\n' + sym_sym + '\n\n\n\n\n\n' + fnc_base + '"]'
+
+    if 'EXT' in base[i]:
+        bottom_legend = base[i].split("_")[0]
+        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#0058ff",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+
+    if 'SYM' in base[i]:
+        bottom_legend = base[i].split("_")[0]
+        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#22851e",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+
+    if 'FNC' in base[i]:
+        bottom_legend = base[i].split("_")[0]
+        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#c100ff",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+
+    if 'NUM' in base[i]:
+        bottom_legend = base[i].split("_")[0]
+        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#ff0303",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+
     kle.append(key.encode("unicode_escape").decode("utf-8"))
 
     rx = rx + 1

@@ -15,8 +15,10 @@ enum layers {
 #define NUM MO(_NUM)
 
 // Mod key Aliases
-#define SFT_SPC LSFT(KC_SPC)
-#define EXT_TAB LT(EXT, KC_TAB)
+#define EXT_SPC LT(EXT, KC_SPC)
+#define SYM_BSP LT(EXT, KC_BSPC)
+#define FNC_TAB LT(EXT, KC_TAB)
+#define NUM_ENT LT(EXT, KC_ENT)
 
 // Oneshot Aliases
 #define OS_SFT OSM(MOD_LSFT)
@@ -38,13 +40,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
          KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, XXXXXXX,
          KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, XXXXXXX,
-                                 EXT_TAB, SFT_SPC,     KC_ENT,     SYM
+                                 EXT_SPC, FNC_TAB,    NUM_ENT, SYM_BSP
    ),
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, GUI_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, KC_CAPS,
        OS_SFT,  OS_CTL,  OS_ALT,  OS_GUI, OS_RALT,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL,
          UNDO,     CUT,    COPY, KC_LGUI,   PASTE,     KC_ENT, KC_BSPC,  KC_TAB, XXXXXXX, KC_PSCR,
-                                 XXXXXXX, XXXXXXX,     KC_ENT,     FNC
+                                 XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
    ),
    [_FNC] = LAYOUT(
       XXXXXXX, KC_MRWD, KC_MPLY, KC_MFFD, XXXXXXX,     KC_F12,   KC_F7,   KC_F8,   KC_F9, XXXXXXX,
@@ -56,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_PEQL, KC_QUOT, KC_COLN, KC_SCLN, KC_PLUS,
       _______, _______, _______, _______, _______,    KC_ASTR, KC_LPRN, KC_LCBR, KC_LBRC, KC_MINS,
       XXXXXXX, XXXXXXX, KC_BSLS, KC_PIPE, KC_AMPR,    KC_PSLS, KC_RPRN, KC_RCBR, KC_RBRC, KC_UNDS,
-                                     FNC,     NUM,    XXXXXXX, XXXXXXX
+                                 XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
    ),
    [_NUM] = LAYOUT(
       _______, _______, _______, _______, _______,    KC_PEQL,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,
