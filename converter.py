@@ -37,17 +37,18 @@ def read_layers():
 keycodes = read_keycode_dict()
 layers = read_layers()
 
-base = layers[0]
-ext = layers[1]
-fnc = layers[2]
-sym = layers[3]
-num = layers[4]
+base = layers[1]
+ext = layers[2]
+fnc = layers[3]
+sym = layers[4]
+num = layers[5]
+spe = layers[6]
 
 rx = 0
 ry = 1
 
 kle = []
-legend = '[{rx: 5, ry: 0, t:"#c100ff\n#0058ff\n#ff0303\n#22851e\n\n\n\n\n\n#000000",f:6}, "F\nE\nN\nS\n\n\n\n\n\n"]'
+legend = '[{a: 0, rx: 5, ry: 0, t:"#c100ff\n#0058ff\n#ff0303\n#22851e\n#8a46db\n\n\n\n\n#000000",f:6}, "F\nE\nN\nS\nS\n\n\n\n\n"]'
 kle.append(legend.encode("unicode_escape").decode("utf-8"))
 
 for i in range(34):
@@ -63,6 +64,7 @@ for i in range(34):
     num_sym = keycodes[num[i]]
     sym_sym = keycodes[sym[i]]
     fnc_base = keycodes[base[i]]
+    spe_sym = keycodes[spe[i]]
 
     x = str(rx)
     y = str(ry)
@@ -73,23 +75,23 @@ for i in range(34):
             offset_x = offset_x + 1
         x = str(offset_x)
 
-    key = '[{rx: ' + x + ', ry: ' + y + ', t:"#c100ff\n#0058ff\n#ff0303\n#22851e\n\n\n\n\n\n#000000",f:3}, "' + fnc_sym + '\n' + ext_sym + '\n' + num_sym + '\n' + sym_sym + '\n\n\n\n\n\n' + fnc_base + '"]'
+    key = '[{a:0, rx: ' + x + ', ry: ' + y + ', t:"#c100ff\n#0058ff\n#ff0303\n#22851e\n#8a46db\n\n\n\n\n#000000",f:3}, "' + fnc_sym + '\n' + ext_sym + '\n' + num_sym + '\n' + sym_sym + '\n' + spe_sym + '\n\n\n\n\n' + fnc_base + '"]'
 
     if 'EXT' in base[i]:
         bottom_legend = base[i].split("_")[0]
-        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#0058ff",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+        key = '[{a:4, rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#0058ff",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
 
     if 'SYM' in base[i]:
         bottom_legend = base[i].split("_")[0]
-        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#22851e",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+        key = '[{a:4, rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#22851e",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
 
     if 'FNC' in base[i]:
         bottom_legend = base[i].split("_")[0]
-        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#c100ff",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+        key = '[{a:4, rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#c100ff",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
 
     if 'NUM' in base[i]:
         bottom_legend = base[i].split("_")[0]
-        key = '[{rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#ff0303",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
+        key = '[{a:4, rx: ' + x + ', ry: ' + y + ', t:"#000000\n\n\n\n#ff0303",f:3}, "\n\n\n\n' + bottom_legend + '\n\n\n\n\n' + fnc_base + '"]'
 
     kle.append(key.encode("unicode_escape").decode("utf-8"))
 

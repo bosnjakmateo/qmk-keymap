@@ -1,7 +1,13 @@
 {
   "GUI_TAB": "<i class='fa fa-exchange'></i>",
   "GUI_GRV": "<i class='fa fa-recycle'></i>",
+  "HYP_GRV": "<i class='fa fa-recycle'></i>",
   "OS_SFT": "⇧",
+  "HYP_1": "<i class='fa fa-rocket'></i>1",
+  "HYP_2": "<i class='fa fa-rocket'></i>2",
+  "HYP_3": "<i class='fa fa-rocket'></i>3",
+  "HYP_4": "<i class='fa fa-rocket'></i>4",
+  "HYP_5": "<i class='fa fa-rocket'></i>5",
   "OS_CTL": "<i class='mss mss-Unicode-Control-4'></i>",
   "OS_ALT": "<i class='mss mss-Unicode-Alternate-3'></i>",
   "OS_GUI": "<i class='mss mss-Unicode-Command-3'></i>",
