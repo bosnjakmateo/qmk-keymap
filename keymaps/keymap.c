@@ -45,7 +45,7 @@ enum layers {
 #define HYP_5 HYPR(KC_5)
 
 // Combos
-const uint16_t PROGMEM spe_combo[] = {EXT_SPC, FNC_TAB, COMBO_END};
+const uint16_t PROGMEM spe_combo[] = {EXT_TAB, FNC_SPC, COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(spe_combo, SPE),
