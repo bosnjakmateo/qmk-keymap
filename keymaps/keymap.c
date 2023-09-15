@@ -18,9 +18,9 @@ enum layers {
 
 // Mod key Aliases
 #define EXT_SPC LT(EXT, KC_SPC)
-#define SYM_BSP LT(EXT, KC_BSPC)
-#define FNC_TAB LT(EXT, KC_TAB)
-#define NUM_ENT LT(EXT, KC_ENT)
+#define SYM_BSP LT(SYM, KC_BSPC)
+#define FNC_TAB LT(FNC, KC_TAB)
+#define NUM_ENT LT(NUM, KC_ENT)
 
 // Oneshot Aliases
 #define OS_SFT OSM(MOD_LSFT)
