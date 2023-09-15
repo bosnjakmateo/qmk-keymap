@@ -18,7 +18,7 @@ jobs:
       - name: Copy custom keymaps
         run: cp -rp keymaps qmk_firmware/keyboards/splitkb/aurora/sweep/keymaps
       - name: Compile firmware
-        run: cd qmk_firmware && make splitkb/aurora/sweep/rev1:default -e CONVERT_TO=promicro_rp2040
+        run: cd qmk_firmware && make splitkb/aurora/sweep/rev1:default -e CONVERT_TO=elite_pi
       - name: Upload compiled firmware (build artifact)
         uses: actions/upload-artifact@v2
         with:
@@ -29,4 +29,4 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            .build/splitkb_aurora_sweep_rev1_default.uf2
+            .build/splitkb_aurora_sweep_rev1_default_elite_pi.uf2
