@@ -17,10 +17,10 @@ enum layers {
 #define SPE MO(_SPE)
 
 // Mod key Aliases
-#define EXT_SPC LT(EXT, KC_SPC)
-#define SYM_BSP LT(EXT, KC_BSPC)
-#define FNC_TAB LT(EXT, KC_TAB)
-#define NUM_ENT LT(EXT, KC_ENT)
+#define EXT_TAB LT(EXT, KC_TAB)
+#define SYM_ENT LT(SYM, KC_ENT)
+#define FNC_SPC LT(FNC, KC_SPC)
+#define NUM_BSP LT(NUM, KC_BSPC)
 
 // Oneshot Aliases
 #define OS_SFT OSM(MOD_LSFT)
@@ -45,7 +45,7 @@ enum layers {
 #define HYP_5 HYPR(KC_5)
 
 // Combos
-const uint16_t PROGMEM spe_combo[] = {EXT_SPC, FNC_TAB, COMBO_END};
+const uint16_t PROGMEM spe_combo[] = {EXT_TAB, FNC_SPC, COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(spe_combo, SPE),
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
          KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, XXXXXXX,
          KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, XXXXXXX,
-                                 EXT_SPC, FNC_TAB,    NUM_ENT, SYM_BSP
+                                 EXT_TAB, FNC_SPC,    NUM_BSP, SYM_ENT
    ),
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, HYP_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, KC_CAPS,
