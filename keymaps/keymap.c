@@ -73,13 +73,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case CHROME:
         if (record->event.pressed) {
             // when keycode QMKBEST is pressed
-            SEND_STRING(SS_DELAY(1000));
+            SEND_STRING(SS_DELAY(100));
             SEND_STRING(SS_DOWN(X_LGUI));
             SEND_STRING(SS_TAP(X_SPC));
             SEND_STRING(SS_UP(X_LGUI));
-            SEND_STRING(SS_DELAY(1000));
+            SEND_STRING(SS_DELAY(100));
             SEND_STRING("chrome");
-            SEND_STRING(SS_DELAY(1000));
+            SEND_STRING(SS_DELAY(100));
             SEND_STRING(SS_TAP(X_ENT));
         } else {
             // when keycode QMKBEST is released
@@ -88,13 +88,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case IDEA:
         if (record->event.pressed) {
             // when keycode QMKBEST is pressed
-            SEND_STRING(SS_DELAY(1000));
+            SEND_STRING(SS_DELAY(100));
             SEND_STRING(SS_DOWN(X_LGUI));
             SEND_STRING(SS_TAP(X_SPC));
             SEND_STRING(SS_UP(X_LGUI));
-            SEND_STRING(SS_DELAY(1000));
+            SEND_STRING(SS_DELAY(100));
             SEND_STRING("IDEA");
-            SEND_STRING(SS_DELAY(1000));
+            SEND_STRING(SS_DELAY(100));
             SEND_STRING(SS_TAP(X_ENT));
         } else {
             // when keycode QMKBEST is released
