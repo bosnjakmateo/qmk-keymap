@@ -63,6 +63,41 @@ combo_t key_combos[] = {
   COMBO(spe_combo, SPE),
 };
 
+enum custom_keycodes {
+    CHROME = SAFE_RANGE,
+    IDEA = SAFE_RANGE,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case CHROME:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+            SEND_STRING(SS_DOWN(X_LGUI));
+            SEND_STRING(SS_TAP(X_SPC));
+            SEND_STRING(SS_UP(X_LGUI));
+            SEND_STRING("chrome");
+            SEND_STRING(SS_TAP(X_ENT));
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
+    case IDEA:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+            SEND_STRING(SS_DOWN(X_LGUI));
+            SEND_STRING(SS_TAP(X_SPC));
+            SEND_STRING(SS_UP(X_LGUI));
+            SEND_STRING("IDEA");
+            SEND_STRING(SS_TAP(X_ENT));
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
+    }
+    return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT(
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
@@ -96,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ),
    [_SPE] = LAYOUT(
       _______, _______, _______, _______, _______,      HYP_1,   HYP_2,   HYP_3,   HYP_4,   HYP_5,
-      _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______,    _______,    IDEA,  CHROME, _______, _______,
       _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
                                  _______, _______,    _______, _______
    ),
