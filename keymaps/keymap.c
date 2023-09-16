@@ -44,6 +44,18 @@ enum layers {
 #define HYP_4 HYPR(KC_4)
 #define HYP_5 HYPR(KC_5)
 
+// Left-hand home row mods
+#define CTL_A LCTL_T(KC_A)
+#define ALT_S LALT_T(KC_S)
+#define GUI_D LGUI_T(KC_D)
+#define SFT_F LSFT_T(KC_F)
+
+// Right-hand home row mods
+#define SFT_J RSFT_T(KC_J)
+#define GUI_K RGUI_T(KC_K)
+#define ALT_L LALT_T(KC_L)
+#define CTL_SCLN RCTL_T(KC_SCLN)
+
 // Combos
 const uint16_t PROGMEM spe_combo[] = {EXT_TAB, FNC_SPC, COMBO_END};
 
@@ -54,38 +66,38 @@ combo_t key_combos[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT(
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
-         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, XXXXXXX,
-         KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, XXXXXXX,
+         CTL_A,  ALT_S,   GUI_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   GUI_K,   ALT_L,   CTL_SCLN,
+         KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_QUES,
                                  EXT_TAB, FNC_SPC,    NUM_BSP, SYM_ENT
    ),
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, HYP_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, KC_CAPS,
-       OS_SFT,  OS_CTL,  OS_ALT,  OS_GUI, OS_RALT,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL,
-         UNDO,     CUT,    COPY, KC_LGUI,   PASTE,     KC_ENT, KC_BSPC,  KC_TAB, XXXXXXX, KC_PSCR,
-                                 XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+      _______, _______, _______, _______, _______,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL,
+         UNDO,     CUT,    COPY, KC_LGUI,   PASTE,     KC_ENT, KC_BSPC,  KC_TAB, _______, KC_PSCR,
+                                 ________, _______,    _______, _______
    ),
    [_FNC] = LAYOUT(
       _______, KC_MRWD, KC_MPLY, KC_MFFD, _______,     KC_F12,   KC_F7,   KC_F8,   KC_F9, _______,
-      _______, _______, _______, _______, _______,     KC_F11,   KC_F4,   KC_F5,   KC_F6, _______,
+      _______, KC_LEFT, _______, KC_RGHT, _______,     KC_F11,   KC_F4,   KC_F5,   KC_F6, _______,
       _______, KC_VOLD, _______, KC_VOLU, _______,     KC_F10,   KC_F1,   KC_F2,   KC_F3, _______,
-                                 XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+                                 _______, _______,    _______, _______
    ),
    [_SYM] = LAYOUT(
       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_PEQL, KC_QUOT, KC_COLN, KC_SCLN, KC_PLUS,
       _______, _______, _______, _______, _______,    KC_ASTR, KC_LPRN, KC_LCBR, KC_LBRC, KC_MINS,
       _______, _______, KC_BSLS, KC_PIPE, KC_AMPR,    KC_PSLS, KC_RPRN, KC_RCBR, KC_RBRC, KC_UNDS,
-                                 XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+                                 _______, _______,    _______, _______
    ),
    [_NUM] = LAYOUT(
       _______, _______, _______, _______, _______,    KC_PEQL,   KC_P7,   KC_P8,   KC_P9, KC_PPLS,
       _______, _______, _______, _______, _______,    KC_PAST,   KC_P4,   KC_P5,   KC_P6, KC_PMNS,
       _______, _______,  KC_TAB, KC_BSPC,  KC_ENT,      KC_P0,   KC_P1,   KC_P2,   KC_P3, KC_PSLS,
-                                 XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+                                 _______, _______,    _______, _______
    ),
    [_SPE] = LAYOUT(
       _______, _______, _______, _______, _______,      HYP_1,   HYP_2,   HYP_3,   HYP_4,   HYP_5,
       _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
-                                 XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+                                 _______, _______,    _______, _______
    ),
 };
