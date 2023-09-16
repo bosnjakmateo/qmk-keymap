@@ -65,7 +65,7 @@ combo_t key_combos[] = {
 
 enum custom_keycodes {
     CHROME = SAFE_RANGE,
-    IDEA = SAFE_RANGE,
+    IDEA,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
