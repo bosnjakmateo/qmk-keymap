@@ -69,6 +69,17 @@ enum custom_keycodes {
     SLACK,
 };
 
+void openApplication(char* applicationName) {
+    SEND_STRING(SS_DELAY(100));
+    SEND_STRING(SS_DOWN(X_LGUI));
+    SEND_STRING(SS_TAP(X_SPC));
+    SEND_STRING(SS_UP(X_LGUI));
+    SEND_STRING(SS_DELAY(50));
+    SEND_STRING(applicationName);
+    SEND_STRING(SS_DELAY(50));
+    SEND_STRING(SS_TAP(X_ENT));
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case CHROME:
@@ -90,23 +101,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
-void openApplication(char* applicationName) {
-    SEND_STRING(SS_DELAY(100));
-    SEND_STRING(SS_DOWN(X_LGUI));
-    SEND_STRING(SS_TAP(X_SPC));
-    SEND_STRING(SS_UP(X_LGUI));
-    SEND_STRING(SS_DELAY(50));
-    SEND_STRING(applicationName);
-    SEND_STRING(SS_DELAY(50));
-    SEND_STRING(SS_TAP(X_ENT));
-}
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT(
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
         CTL_A,   ALT_S,   GUI_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   GUI_K,   ALT_L, CTL_SCLN,
          KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_QUES,
-                                 EXT_TAB, FNC_SPC,    NUM_BSP, SYM_ENT
+                                 FNC_SPC, EXT_TAB,    SYMENT, NUM_BSP
    ),
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, HYP_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, CW_TOGG,
@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ),
    [_SPE] = LAYOUT(
       _______, _______, _______, _______, _______,      HYP_1,   HYP_2,   HYP_3,   HYP_4,   HYP_5,
-      _______, _______, _______, _______, _______,    _______,    IDEA,  CHROME, _______, _______,
+      _______, _______, _______, _______, _______,    _______,    IDEA,  CHROME,   SLACK, _______,
       _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
                                  _______, _______,    _______, _______
    ),
