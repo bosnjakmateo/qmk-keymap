@@ -66,43 +66,40 @@ combo_t key_combos[] = {
 enum custom_keycodes {
     CHROME = SAFE_RANGE,
     IDEA,
+    SLACK,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case CHROME:
         if (record->event.pressed) {
-            // when keycode QMKBEST is pressed
-            SEND_STRING(SS_DELAY(100));
-            SEND_STRING(SS_DOWN(X_LGUI));
-            SEND_STRING(SS_TAP(X_SPC));
-            SEND_STRING(SS_UP(X_LGUI));
-            SEND_STRING(SS_DELAY(100));
-            SEND_STRING("chrome");
-            SEND_STRING(SS_DELAY(100));
-            SEND_STRING(SS_TAP(X_ENT));
-        } else {
-            // when keycode QMKBEST is released
+            openApplication("chr");
         }
         break;
     case IDEA:
         if (record->event.pressed) {
-            // when keycode QMKBEST is pressed
-            SEND_STRING(SS_DELAY(100));
-            SEND_STRING(SS_DOWN(X_LGUI));
-            SEND_STRING(SS_TAP(X_SPC));
-            SEND_STRING(SS_UP(X_LGUI));
-            SEND_STRING(SS_DELAY(100));
-            SEND_STRING("IDEA");
-            SEND_STRING(SS_DELAY(100));
-            SEND_STRING(SS_TAP(X_ENT));
-        } else {
-            // when keycode QMKBEST is released
+            openApplication("idea");
+        }
+        break;
+    case SLACK:
+        if (record->event.pressed) {
+            openApplication("slack");
         }
         break;
     }
     return true;
 };
+
+void openApplication(char* applicationName) {
+    SEND_STRING(SS_DELAY(100));
+    SEND_STRING(SS_DOWN(X_LGUI));
+    SEND_STRING(SS_TAP(X_SPC));
+    SEND_STRING(SS_UP(X_LGUI));
+    SEND_STRING(SS_DELAY(50));
+    SEND_STRING(applicationName);
+    SEND_STRING(SS_DELAY(50));
+    SEND_STRING(SS_TAP(X_ENT));
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT(
@@ -112,14 +109,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  EXT_TAB, FNC_SPC,    NUM_BSP, SYM_ENT
    ),
    [_EXT] = LAYOUT(
-       KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, HYP_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, KC_CAPS,
+       KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, HYP_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, CW_TOGG,
       _______, _______, _______, _______, _______,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL,
          UNDO,     CUT,    COPY, KC_LGUI,   PASTE,     KC_ENT, KC_BSPC,  KC_TAB, _______, KC_PSCR,
                                  _______, _______,    _______, _______
    ),
    [_FNC] = LAYOUT(
       _______, KC_MRWD, KC_MPLY, KC_MFFD, _______,     KC_F12,   KC_F7,   KC_F8,   KC_F9, _______,
-      _______, KC_LEFT, _______, KC_RGHT, _______,     KC_F11,   KC_F4,   KC_F5,   KC_F6, _______,
+      _______, _______, _______, _______, _______,     KC_F11,   KC_F4,   KC_F5,   KC_F6, _______,
       _______, KC_VOLD, _______, KC_VOLU, _______,     KC_F10,   KC_F1,   KC_F2,   KC_F3, _______,
                                  _______, _______,    _______, _______
    ),
