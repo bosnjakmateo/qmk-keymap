@@ -22,13 +22,6 @@ enum layers {
 #define FNC_SPC LT(FNC, KC_SPC)
 #define NUM_BSP LT(NUM, KC_BSPC)
 
-// Oneshot Aliases
-#define OS_SFT OSM(MOD_LSFT)
-#define OS_CTL OSM(MOD_LCTL)
-#define OS_ALT OSM(MOD_LALT)
-#define OS_GUI OSM(MOD_LGUI)
-#define OS_RALT OSM(MOD_RALT)
-
 // Other Aliases
 #define UNDO LGUI(KC_Z)
 #define CUT LGUI(KC_X)
@@ -74,9 +67,7 @@ void openApplication(char* applicationName) {
     SEND_STRING(SS_DOWN(X_LGUI));
     SEND_STRING(SS_TAP(X_SPC));
     SEND_STRING(SS_UP(X_LGUI));
-    SEND_STRING(SS_DELAY(50));
     SEND_STRING(applicationName);
-    SEND_STRING(SS_DELAY(50));
     SEND_STRING(SS_TAP(X_ENT));
 }
 
