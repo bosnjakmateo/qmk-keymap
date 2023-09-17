@@ -57,7 +57,7 @@ enum layers {
 #define CTL_SCLN RCTL_T(KC_SCLN)
 
 // Combos
-const uint16_t PROGMEM spe_combo[] = {EXT_TAB, FNC_SPC, COMBO_END};
+const uint16_t PROGMEM spe_combo[] = {LT(EXT, KC_SPC), LT(FNC, KC_TAB), COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(spe_combo, SPE),
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
         CTL_A,   ALT_S,   GUI_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   GUI_K,   ALT_L, CTL_SCLN,
          KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_QUES,
-                                 FNC_SPC, EXT_TAB,    SYMENT, NUM_BSP
+                  LT(FNC, KC_TAB), LT(EXT, KC_SPC),      LT(SYM, KC_BSPC), LT(NUM, KC_ENT)
    ),
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, HYP_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, CW_TOGG,
