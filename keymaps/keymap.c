@@ -67,7 +67,9 @@ void openApplication(char* applicationName) {
     SEND_STRING(SS_DOWN(X_LGUI));
     SEND_STRING(SS_TAP(X_SPC));
     SEND_STRING(SS_UP(X_LGUI));
+    SEND_STRING(SS_DELAY(50));
     SEND_STRING(applicationName);
+    SEND_STRING(SS_DELAY(50));
     SEND_STRING(SS_TAP(X_ENT));
 }
 
