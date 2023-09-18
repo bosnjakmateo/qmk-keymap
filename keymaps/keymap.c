@@ -38,16 +38,16 @@ enum layers {
 #define HYP_5 HYPR(KC_5)
 
 // Left-hand home row mods
-#define CTL_A LCTL_T(KC_A)
-#define ALT_S LALT_T(KC_S)
-#define GUI_D LGUI_T(KC_D)
-#define SFT_F LSFT_T(KC_F)
+#define SFT_A LSFT_T(KC_A)
+#define CTL_S LCTL_T(KC_S)
+#define ALT_D LALT_T(KC_D)
+#define GUI_F LGUI_T(KC_F)
 
 // Right-hand home row mods
-#define SFT_J RSFT_T(KC_J)
-#define GUI_K RGUI_T(KC_K)
-#define ALT_L LALT_T(KC_L)
-#define CTL_SCLN RCTL_T(KC_SCLN)
+#define GUI_J RGUI_T(KC_J)
+#define ALT_K LALT_T(KC_K)
+#define CTL_L RCTL_T(KC_L)
+#define SFT_SCLN RSFT_T(KC_SCLN)
 
 // Combos
 const uint16_t PROGMEM spe_combo[] = {LT(EXT, KC_SPC), LT(FNC, KC_TAB), COMBO_END};
@@ -97,7 +97,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT(
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
-        CTL_A,   ALT_S,   GUI_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   GUI_K,   ALT_L, CTL_SCLN,
+        SFT_A,   CTL_S,   ALT_D,   GUI_F,    KC_G,       KC_H,   GUI_J,   ALT_K,   CTL_L, SFT_SCLN,
          KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_QUES,
                   LT(FNC, KC_TAB), LT(EXT, KC_SPC),      LT(SYM, KC_BSPC), LT(NUM, KC_ENT)
    ),
@@ -114,9 +114,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  _______, _______,    _______, _______
    ),
    [_SYM] = LAYOUT(
-      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_PEQL, KC_QUOT, KC_COLN, KC_SCLN, KC_PLUS,
-      _______, _______, _______, _______, _______,    KC_ASTR, KC_LPRN, KC_LCBR, KC_LBRC, KC_MINS,
-      _______, _______, KC_BSLS, KC_PIPE, KC_AMPR,    KC_PSLS, KC_RPRN, KC_RCBR, KC_RBRC, KC_UNDS,
+      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS,  KC_EQL,
+      KC_TILD, _______, _______, _______, _______,    KC_LPRN, KC_RPRN, KC_SCLN, KC_QUOT, KC_BSLS,
+      _______, _______, KC_BSLS, KC_PIPE, KC_AMPR,    KC_LBRC, KC_RBRC, KC_COMM,  KC_DOT, KC_SLSH,
                                  _______, _______,    _______, _______
    ),
    [_NUM] = LAYOUT(
