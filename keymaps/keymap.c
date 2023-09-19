@@ -28,9 +28,9 @@ enum layers {
 #define COPY LGUI(KC_C)
 #define PASTE LGUI(KC_V)
 #define GUI_TAB LGUI(KC_TAB)
-#define HYP_GRV HYPR(KC_GRV)
 
 // Hypers
+#define HYP_0 HYPR(KC_0)
 #define HYP_1 HYPR(KC_1)
 #define HYP_2 HYPR(KC_2)
 #define HYP_3 HYPR(KC_3)
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   LT(FNC, KC_TAB), LT(EXT, KC_SPC),      LT(SYM, KC_BSPC), LT(NUM, KC_ENT)
    ),
    [_EXT] = LAYOUT(
-       KC_ESC, KC_PAUS,  KC_INS, GUI_TAB, HYP_GRV,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, CW_TOGG,
+       KC_ESC, KC_PAUS,  KC_INS, GUI_TAB,   HYP_0,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, CW_TOGG,
       _______, _______, _______, _______, _______,    KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL,
          UNDO,     CUT,    COPY, KC_LGUI,   PASTE,     KC_ENT, KC_BSPC,  KC_TAB, _______, KC_PSCR,
                                  _______, _______,    _______, _______
