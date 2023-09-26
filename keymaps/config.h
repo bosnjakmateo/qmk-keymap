@@ -1,2 +1,4 @@
 #define TAPPING_TERM 200
 #define MK_3_SPEED
+#define MK_C_OFFSET_UNMOD 32
+#define MK_W_OFFSET_UNMOD 2
