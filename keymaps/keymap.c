@@ -6,7 +6,8 @@ enum layers {
    _FNC,
    _SYM,
    _NUM,
-   _SPE
+   _SPE,
+   _MUS
 };
 
 // Layer aliases
@@ -15,6 +16,7 @@ enum layers {
 #define SYM MO(_SYM)
 #define NUM MO(_NUM)
 #define SPE MO(_SPE)
+#define MUS MO(_MUS)
 
 // Mod key Aliases
 #define EXT_TAB LT(EXT, KC_TAB)
@@ -51,9 +53,11 @@ enum layers {
 
 // Combos
 const uint16_t PROGMEM spe_combo[] = {LT(EXT, KC_SPC), LT(FNC, KC_TAB), COMBO_END};
+const uint16_t PROGMEM mus_combo[] = {LT(SYM, KC_BSPC), LT(NUM, KC_ENT), COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(spe_combo, SPE),
+  COMBO(mus_combo, MUS),
 };
 
 enum custom_keycodes {
@@ -126,6 +130,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  _______, _______,    _______, _______
    ),
    [_SPE] = LAYOUT(
+      _______, _______, _______, _______, _______,      HYP_1,   HYP_2,   HYP_3,   HYP_4,   HYP_5,
+      _______, _______, _______, _______, _______,    _______,    IDEA,  CHROME,   SLACK, _______,
+      _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
+                                 _______, _______,    _______, _______
+   ),
+   [_MUS] = LAYOUT(
       _______, _______, _______, _______, _______,      HYP_1,   HYP_2,   HYP_3,   HYP_4,   HYP_5,
       _______, _______, _______, _______, _______,    _______,    IDEA,  CHROME,   SLACK, _______,
       _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
