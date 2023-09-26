@@ -1,1 +1,2 @@
 #define TAPPING_TERM 200
+#define MK_3_SPEED
