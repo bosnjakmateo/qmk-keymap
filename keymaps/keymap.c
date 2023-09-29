@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
         SFT_A,   CTL_S,   ALT_D,   GUI_F,    KC_G,       KC_H,   GUI_J,   ALT_K,   CTL_L, SFT_SCLN,
          KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_QUES,
-                  LT(FNC, KC_TAB), LT(EXT, KC_SPC),      LT(SYM, KC_BSPC),LT(NUM, KC_ENT)
+                  LT(FNC, KC_TAB), LT(EXT, KC_SPC),      LT(SYM, KC_ENT),LT(NUM, KC_BSPC)
    ),
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB,   HYP_0,    KC_PGUP, KC_HOME,   KC_UP,  KC_END, CW_TOGG,
@@ -118,15 +118,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  _______, _______,    _______, _______
    ),
    [_SYM] = LAYOUT(
-      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS,  KC_EQL,
-      _______, _______, _______, _______, _______,    KC_LPRN, KC_RPRN, KC_SCLN, KC_QUOT, KC_BSLS,
-      KC_TILD, _______, KC_BSLS, KC_PIPE, KC_AMPR,    KC_LBRC, KC_RBRC, KC_COMM,  KC_DOT, KC_SLSH,
+      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_LBRC,    KC_RBRC, KC_PLUS, KC_ASTR, KC_SLSH, KC_PERC,
+      KC_AMPR, KC_UNDS, KC_DQUO, KC_QUOT, KC_LPRN,    KC_RPRN, KC_MINS, XXXXXXX, XXXXXXX, KC_SCLN,
+      KC_PIPE, KC_TILD, KC_CIRC,  KC_GRV, KC_LCBR,    KC_RCBR,  KC_EQL, KC_COMM,  KC_DOT, KC_BSLS,
                                  _______, _______,    _______, _______
    ),
    [_NUM] = LAYOUT(
-      _______, _______, _______, _______, _______,    KC_PEQL,    KC_7,    KC_8,    KC_9, KC_PPLS,
-      _______, _______, _______, _______, KC_COMM,    KC_PAST,    KC_4,    KC_5,    KC_6, KC_PMNS,
-      _______, _______,  KC_TAB, KC_BSPC,  KC_ENT,       KC_0,    KC_1,    KC_2,    KC_3, KC_PSLS,
+      _______, _______, _______, KC_PAST, KC_PPLS,    _______,    KC_7,    KC_8,    KC_9, _______,
+      _______, _______, _______, KC_PSLS, KC_PMNS,    _______,    KC_4,    KC_5,    KC_6, _______,
+      _______, _______, KC_PEQL, KC_PCMM, KC_PDOT,       KC_0,    KC_1,    KC_2,    KC_3, _______,
                                  _______, _______,    _______, _______
    ),
    [_SPE] = LAYOUT(
