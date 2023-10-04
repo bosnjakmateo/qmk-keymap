@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Clone QMK
         run: git clone https://github.com/qmk/qmk_firmware.git
       - name: Install qmk deps
@@ -20,7 +20,7 @@ jobs:
       - name: Compile firmware
         run: cd qmk_firmware && make splitkb/aurora/sweep/rev1:bosnjakmateo -e CONVERT_TO=elite_pi
       - name: Upload compiled firmware (build artifact)
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Aurora sweep
           path: qmk_firmware/splitkb_aurora_sweep_rev1_bosnjakmateo_elite_pi.uf2
