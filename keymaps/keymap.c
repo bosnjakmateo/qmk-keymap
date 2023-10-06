@@ -119,13 +119,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ),
    [_SYM] = LAYOUT(
       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_LBRC,    KC_RBRC, KC_PLUS, KC_ASTR, KC_SLSH, KC_PERC,
-      LSFT_T(KC_AMPR), KC_UNDS, KC_DQUO, KC_QUOT, KC_LPRN,    KC_RPRN, KC_MINS, KC_LABK, KC_RABK, KC_SCLN,
+      LSFT_T(KC_AMPR), LCTL_T(KC_UNDS), LALT_T(KC_DQUO), LGUI_T(KC_QUOT), KC_LPRN,             KC_RPRN, KC_MINS, KC_LABK, KC_RABK, KC_SCLN,
       KC_PIPE, KC_TILD, KC_CIRC,  KC_GRV, KC_LCBR,    KC_RCBR,  KC_EQL, KC_COMM,  KC_DOT, KC_BSLS,
                                  _______, _______,    _______, _______
    ),
    [_NUM] = LAYOUT(
       _______, _______, _______, KC_PAST, KC_PPLS,    _______,    KC_7,    KC_8,    KC_9, _______,
-      _______, _______, _______, KC_PSLS, KC_PMNS,    _______,    KC_4,    KC_5,    KC_6, _______,
+      _______, _______, _______, LGUI_T(KC_PSLS), KC_PMNS,    _______,    KC_4,    KC_5,    KC_6, _______,
       _______, _______, KC_PEQL, KC_COMM,  KC_DOT,       KC_0,    KC_1,    KC_2,    KC_3, _______,
                                  _______, _______,    _______, _______
    ),
