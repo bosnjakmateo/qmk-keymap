@@ -103,21 +103,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;        // Return false to ignore further processing of key
         }
         break;
-    return true;
     case LCTL_T(KC_UNDS):
         if (record->tap.count && record->event.pressed) {
             tap_code16(KC_UNDS); // Send KC_DQUO on tap
             return false;        // Return false to ignore further processing of key
         }
         break;
-    return true;
     case LALT_T(KC_DQUO):
         if (record->tap.count && record->event.pressed) {
             tap_code16(KC_DQUO); // Send KC_DQUO on tap
             return false;        // Return false to ignore further processing of key
         }
         break;
-    return true;
     case LGUI_T(KC_QUOT):
         if (record->tap.count && record->event.pressed) {
             tap_code16(KC_QUOT); // Send KC_DQUO on tap
