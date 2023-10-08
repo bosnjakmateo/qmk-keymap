@@ -96,13 +96,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             openApplication("slack");
         }
         break;
-    }
     case LSFT_T(KC_AMPR):
-        if (record->tap.count && record->event.pressed) {
-            tap_code16(KC_AMPR); // Send KC_DQUO on tap
-            return false;        // Return false to ignore further processing of key
-        }
-        break;
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_AMPR); // Send KC_DQUO on tap
+                return false;        // Return false to ignore further processing of key
+            }
+            break;
     case LCTL_T(KC_UNDS):
         if (record->tap.count && record->event.pressed) {
             tap_code16(KC_UNDS); // Send KC_DQUO on tap
@@ -121,6 +120,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;        // Return false to ignore further processing of key
         }
         break;
+    }
     return true;
 };
 
