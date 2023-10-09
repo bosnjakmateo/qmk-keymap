@@ -1,3 +1,5 @@
+#pragma once
+
 #define TAPPING_TERM 200
 
 // Mouse key speed and acceleration.
@@ -11,3 +13,7 @@
 #define MOUSEKEY_MAX_SPEED      6
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
+
+#define OLED_TIMEOUT 120000
+#define OLED_BRIGHTNESS 120
+#define SPLIT_WPM_ENABLE
