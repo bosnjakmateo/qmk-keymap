@@ -302,13 +302,13 @@ static void print_status_narrow(void) {
              oled_write("Base ", false);
             break;
         case _EXT:
-            oled_write("Ext", false);
+            oled_write("Ext  ", false);
             break;
         case _FNC:
-            oled_write("Fnc", false);
+            oled_write("Fnc  ", false);
             break;
         case _SYM:
-            oled_write("Sym", false);
+            oled_write("Sym  ", false);
             break;
         case _NUM:
             oled_write("Num  ", false);
@@ -406,7 +406,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;        // Return false to ignore further processing of key
         }
         break;
-    case LCTL_T(KC_S):
+    case KC_LCTL:
     case KC_RCTL:
         if (record->event.pressed) {
             isSneaking = true;
@@ -414,7 +414,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             isSneaking = false;
         }
         break;
-    case LT(EXT, KC_SPC):
+    case KC_SPC:
         if (record->event.pressed) {
             isJumping  = true;
             showedJump = false;
