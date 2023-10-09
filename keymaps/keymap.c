@@ -68,78 +68,6 @@ enum custom_keycodes {
     SLACK,
 };
 
-void openApplication(char* applicationName) {
-    SEND_STRING(SS_DELAY(100));
-    SEND_STRING(SS_DOWN(X_LGUI));
-    SEND_STRING(SS_TAP(X_SPC));
-    SEND_STRING(SS_UP(X_LGUI));
-    SEND_STRING(SS_DELAY(50));
-    SEND_STRING(applicationName);
-    SEND_STRING(SS_DELAY(50));
-    SEND_STRING(SS_TAP(X_ENT));
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-    case CHROME:
-        if (record->event.pressed) {
-            openApplication("chr");
-        }
-        break;
-    case IDEA:
-        if (record->event.pressed) {
-            openApplication("idea");
-        }
-        break;
-    case SLACK:
-        if (record->event.pressed) {
-            openApplication("slack");
-        }
-        break;
-    case LSFT_T(KC_AMPR):
-            if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_AMPR); // Send KC_DQUO on tap
-                return false;        // Return false to ignore further processing of key
-            }
-            break;
-    case LCTL_T(KC_UNDS):
-        if (record->tap.count && record->event.pressed) {
-            tap_code16(KC_UNDS); // Send KC_DQUO on tap
-            return false;        // Return false to ignore further processing of key
-        }
-        break;
-    case LALT_T(KC_DQUO):
-        if (record->tap.count && record->event.pressed) {
-            tap_code16(KC_DQUO); // Send KC_DQUO on tap
-            return false;        // Return false to ignore further processing of key
-        }
-        break;
-    case LGUI_T(KC_QUOT):
-        if (record->tap.count && record->event.pressed) {
-            tap_code16(KC_QUOT); // Send KC_DQUO on tap
-            return false;        // Return false to ignore further processing of key
-        }
-        break;
-    case KC_LCTL:
-    case KC_RCTL:
-        if (record->event.pressed) {
-            isSneaking = true;
-        } else {
-            isSneaking = false;
-        }
-        break;
-    case KC_SPC:
-        if (record->event.pressed) {
-            isJumping  = true;
-            showedJump = false;
-        } else {
-            isJumping = false;
-        }
-        break;
-    }
-    return true;
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT(
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
@@ -223,6 +151,78 @@ led_t led_usb_state;
 bool isSneaking = false;
 bool isJumping  = false;
 bool showedJump = true;
+
+void openApplication(char* applicationName) {
+    SEND_STRING(SS_DELAY(100));
+    SEND_STRING(SS_DOWN(X_LGUI));
+    SEND_STRING(SS_TAP(X_SPC));
+    SEND_STRING(SS_UP(X_LGUI));
+    SEND_STRING(SS_DELAY(50));
+    SEND_STRING(applicationName);
+    SEND_STRING(SS_DELAY(50));
+    SEND_STRING(SS_TAP(X_ENT));
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case CHROME:
+        if (record->event.pressed) {
+            openApplication("chr");
+        }
+        break;
+    case IDEA:
+        if (record->event.pressed) {
+            openApplication("idea");
+        }
+        break;
+    case SLACK:
+        if (record->event.pressed) {
+            openApplication("slack");
+        }
+        break;
+    case LSFT_T(KC_AMPR):
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_AMPR); // Send KC_DQUO on tap
+                return false;        // Return false to ignore further processing of key
+            }
+            break;
+    case LCTL_T(KC_UNDS):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(KC_UNDS); // Send KC_DQUO on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+    case LALT_T(KC_DQUO):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(KC_DQUO); // Send KC_DQUO on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+    case LGUI_T(KC_QUOT):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(KC_QUOT); // Send KC_DQUO on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+    case KC_LCTL:
+    case KC_RCTL:
+        if (record->event.pressed) {
+            isSneaking = true;
+        } else {
+            isSneaking = false;
+        }
+        break;
+    case KC_SPC:
+        if (record->event.pressed) {
+            isJumping  = true;
+            showedJump = false;
+        } else {
+            isJumping = false;
+        }
+        break;
+    }
+    return true;
+};
 
 /* logic */
 static void render_luna(int LUNA_X, int LUNA_Y) {
