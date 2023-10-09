@@ -54,10 +54,12 @@ enum layers {
 // Combos
 const uint16_t PROGMEM spe_combo[] = {LT(EXT, KC_SPC), LT(FNC, KC_TAB), COMBO_END};
 const uint16_t PROGMEM mus_combo[] = {LT(SYM, KC_ENT), LT(NUM, KC_BSPC), COMBO_END};
+const uint16_t PROGMEM backspace_combo[] = {KC_I, KC_O, COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(spe_combo, SPE),
   COMBO(mus_combo, MUS),
+  COMBO(backspace_combo, KC_BSPC),
 };
 
 enum custom_keycodes {
@@ -94,6 +96,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             openApplication("slack");
         }
         break;
+    case LSFT_T(KC_AMPR):
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_AMPR); // Send KC_DQUO on tap
+                return false;        // Return false to ignore further processing of key
+            }
+            break;
+    case LCTL_T(KC_UNDS):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(KC_UNDS); // Send KC_DQUO on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+    case LALT_T(KC_DQUO):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(KC_DQUO); // Send KC_DQUO on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+    case LGUI_T(KC_QUOT):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(KC_QUOT); // Send KC_DQUO on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
     }
     return true;
 };
@@ -119,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ),
    [_SYM] = LAYOUT(
       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_LBRC,    KC_RBRC, KC_PLUS, KC_ASTR, KC_SLSH, KC_PERC,
-      LSFT_T(KC_AMPR), LCTL_T(KC_UNDS), LALT_T(KC_DQUO), LGUI_T(KC_QUOT), KC_LPRN,             KC_RPRN, KC_MINS, KC_LABK, KC_RABK, KC_SCLN,
+      LSFT_T(KC_AMPR), LCTL_T(KC_UNDS), LALT_T(KC_DQUO), LGUI_T(KC_QUOT), KC_LPRN,    KC_RPRN, KC_MINS, KC_LABK, KC_RABK, KC_SCLN,
       KC_PIPE, KC_TILD, KC_CIRC,  KC_GRV, KC_LCBR,    KC_RCBR,  KC_EQL, KC_COMM,  KC_DOT, KC_BSLS,
                                  _______, _______,    _______, _______
    ),
