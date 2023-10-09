@@ -366,14 +366,6 @@ static void print_status_narrow(void) {
 
     oled_set_cursor(0, 3);
 
-    switch (get_highest_layer(default_layer_state)) {
-        case _QWERTY:
-            oled_write("QWRTY", false);
-            break;
-        default:
-            oled_write("UNDEF", false);
-    }
-
     oled_set_cursor(0, 5);
 
     /* Print current layer */
@@ -383,7 +375,7 @@ static void print_status_narrow(void) {
 
     switch (get_highest_layer(layer_state)) {
         case _BASE:
-             ("Base ", false);
+             oled_write("Base ", false);
             break;
         case _EXT:
             oled_write("Extended", false);
