@@ -53,6 +53,7 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
         /* switch frame */
         current_frame = (current_frame + 1) % 2;
+        oled_write_raw_P(sit[current_frame], ANIM_SIZE);
     }
 
 #    if OLED_TIMEOUT > 0
