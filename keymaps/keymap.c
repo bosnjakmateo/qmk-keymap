@@ -286,11 +286,7 @@ static void print_logo_narrow(void) {
 static void print_status_narrow(void) {
     /* Print current mode */
     oled_set_cursor(0, 0);
-    if (keymap_config.swap_lctl_lgui) {
-        oled_write_raw_P(mac_logo, sizeof(mac_logo));
-    } else {
-        oled_write_raw_P(windows_logo, sizeof(windows_logo));
-    }
+    oled_write_raw_P(mac_logo, sizeof(mac_logo));
 
     oled_set_cursor(0, 3);
 
@@ -306,22 +302,22 @@ static void print_status_narrow(void) {
              oled_write("Base ", false);
             break;
         case _EXT:
-            oled_write("Extended", false);
+            oled_write("Ext", false);
             break;
         case _FNC:
-            oled_write("Function", false);
+            oled_write("Fnc", false);
             break;
         case _SYM:
-            oled_write("Symbol", false);
+            oled_write("Sym", false);
             break;
         case _NUM:
-            oled_write("Number  ", false);
+            oled_write("Num  ", false);
             break;
         case _SPE:
-            oled_write("Special  ", false);
+            oled_write("Spe  ", false);
             break;
         case _MUS:
-            oled_write("Mouse  ", false);
+            oled_write("Mus  ", false);
             break;
         default:
             oled_write("Undef", false);
@@ -410,7 +406,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;        // Return false to ignore further processing of key
         }
         break;
-    case KC_LCTL:
+    case LCTL_T(KC_S):
     case KC_RCTL:
         if (record->event.pressed) {
             isSneaking = true;
@@ -418,7 +414,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             isSneaking = false;
         }
         break;
-    case KC_SPC:
+    case LT(EXT, KC_SPC):
         if (record->event.pressed) {
             isJumping  = true;
             showedJump = false;
