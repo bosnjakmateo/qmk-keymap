@@ -120,6 +120,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;        // Return false to ignore further processing of key
         }
         break;
+    case KC_LCTL:
+    case KC_RCTL:
+        if (record->event.pressed) {
+            isSneaking = true;
+        } else {
+            isSneaking = false;
+        }
+        break;
+    case KC_SPC:
+        if (record->event.pressed) {
+            isJumping  = true;
+            showedJump = false;
+        } else {
+            isJumping = false;
+        }
+        break;
     }
     return true;
 };
@@ -321,3 +337,101 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 }
 
 /* KEYBOARD PET END */
+
+static void print_logo_narrow(void) {
+    render_logo();
+
+    /* wpm counter */
+    uint8_t n = get_current_wpm();
+    char    wpm_str[4];
+    oled_set_cursor(0, 14);
+    wpm_str[3] = '\0';
+    wpm_str[2] = '0' + n % 10;
+    wpm_str[1] = '0' + (n /= 10) % 10;
+    wpm_str[0] = '0' + n / 10;
+    oled_write(wpm_str, false);
+
+    oled_set_cursor(0, 15);
+    oled_write(" wpm", false);
+}
+
+static void print_status_narrow(void) {
+    /* Print current mode */
+    oled_set_cursor(0, 0);
+    if (keymap_config.swap_lctl_lgui) {
+        oled_write_raw_P(mac_logo, sizeof(mac_logo));
+    } else {
+        oled_write_raw_P(windows_logo, sizeof(windows_logo));
+    }
+
+    oled_set_cursor(0, 3);
+
+    switch (get_highest_layer(default_layer_state)) {
+        case _QWERTY:
+            oled_write("QWRTY", false);
+            break;
+        default:
+            oled_write("UNDEF", false);
+    }
+
+    oled_set_cursor(0, 5);
+
+    /* Print current layer */
+    oled_write("LAYER", false);
+
+    oled_set_cursor(0, 6);
+
+    switch (get_highest_layer(layer_state)) {
+        case _BASE:
+             ("Base ", false);
+            break;
+        case _EXT:
+            oled_write("Extended", false);
+            break;
+        case _FNC:
+            oled_write("Function", false);
+            break;
+        case _SYM:
+            oled_write("Symbol", false);
+            break;
+        case _NUM:
+            oled_write("Number  ", false);
+            break;
+        case _SPE:
+            oled_write("Special  ", false);
+            break;
+        case _MUS:
+            oled_write("Mouse  ", false);
+            break;
+        default:
+            oled_write("Undef", false);
+    }
+
+    /* caps lock */
+    oled_set_cursor(0, 8);
+    oled_write("CPSLK", led_usb_state.caps_lock);
+
+    /* KEYBOARD PET RENDER START */
+
+    render_luna(0, 13);
+
+    /* KEYBOARD PET RENDER END */
+}
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_270; }
+
+bool oled_task_user(void) {
+    /* KEYBOARD PET VARIABLES START */
+
+    current_wpm   = get_current_wpm();
+    led_usb_state = host_keyboard_led_state();
+
+    /* KEYBOARD PET VARIABLES END */
+
+    if (is_keyboard_master()) {
+        print_status_narrow();
+    } else {
+        print_logo_narrow();
+    }
+    return false;
+}
