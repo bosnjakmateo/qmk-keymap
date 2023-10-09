@@ -21,7 +21,7 @@ static void print_status_narrow(void) {
         default:
             oled_write_P(PSTR("Mod"), false);
             break;
-    }π
+    }
     oled_write_P(PSTR("\n\n"), false);
     // Print current layer
     oled_write_ln_P(PSTR("LAYER"), false);
