@@ -182,7 +182,6 @@ bool oled_task_user(void) {
     /* KEYBOARD PET VARIABLES START */
 
     current_wpm   = get_current_wpm();
-    led_usb_state = host_keyboard_led_state();
 
     /* KEYBOARD PET VARIABLES END */
 
