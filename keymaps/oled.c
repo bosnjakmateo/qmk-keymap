@@ -4,7 +4,7 @@ bool oled_task_user(void) {
     oled_write_P(PSTR("Layer: "), false);
 
     switch (get_highest_layer(layer_state)) {
-        case _BASE:
+        case 0:
             oled_write_P(PSTR("Default\n"), false);
             break;
         default:
