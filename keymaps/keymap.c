@@ -20,10 +20,10 @@ enum layers {
 #define MUS MO(_MUS)
 
 // Mod key Aliases
-#define EXT_TAB LT(EXT, KC_TAB)
-#define SYM_ENT LT(SYM, KC_ENT)
-#define FNC_SPC LT(FNC, KC_SPC)
-#define NUM_BSP LT(NUM, KC_BSPC)
+#define THUMB_1 LT(FNC, KC_TAB)
+#define THUMB_2 LT(EXT, KC_SPC)
+#define THUMB_3 LT(SYM, KC_ENT)
+#define THUMB_4 LT(NUM, KC_BSPC)
 
 // Other Aliases
 #define UNDO LGUI(KC_Z)
@@ -53,8 +53,8 @@ enum layers {
 #define SFT_SCLN RSFT_T(KC_SCLN)
 
 // Combos
-const uint16_t PROGMEM spe_combo[] = {LT(EXT, KC_SPC), LT(FNC, KC_TAB), COMBO_END};
-const uint16_t PROGMEM mus_combo[] = {LT(SYM, KC_ENT), LT(NUM, KC_BSPC), COMBO_END};
+const uint16_t PROGMEM spe_combo[] = {THUMB_1, THUMB_2, COMBO_END};
+const uint16_t PROGMEM mus_combo[] = {THUMB_3, THUMB_4, COMBO_END};
 const uint16_t PROGMEM backspace_combo[] = {KC_I, KC_O, COMBO_END};
 
 combo_t key_combos[] = {
@@ -130,12 +130,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
         SFT_A,   CTL_S,   ALT_D,   GUI_F,    KC_G,       KC_H,   GUI_J,   ALT_K,   CTL_L, SFT_SCLN,
          KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_QUES,
-                  LT(FNC, KC_TAB), LT(SYM, KC_SPC),      LT(EXT, KC_ENT),LT(NUM, KC_BSPC)
+                                 THUMB_1, THUMB_2,    THUMB_3, THUMB_4
    ),
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB,   HYP_0,    KC_PGUP, KC_PGDN, KC_HOME,  KC_END, CW_TOGG,
       _______, _______, _______, _______, _______,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_DEL,
-      _______, _______, _______, _______, _______,       UNDO,     CUT,    COPY,   PASTE, KC_PSCR,
+         UNDO,     CUT,    COPY,   PASTE, _______,    _______, _______, _______, _______, KC_PSCR,
                                  _______, _______,    _______, _______
    ),
    [_FNC] = LAYOUT(
