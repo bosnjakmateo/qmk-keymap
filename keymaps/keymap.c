@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_EXT] = LAYOUT(
        KC_ESC, KC_PAUS,  KC_INS, GUI_TAB,   HYP_0,    KC_PGUP, KC_PGDN, KC_HOME,  KC_END, CW_TOGG,
       _______, _______, _______, _______, _______,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_DEL,
-         UNDO,     CUT,    COPY, KC_LGUI,   PASTE,     KC_ENT, KC_BSPC,  KC_TAB, _______, KC_PSCR,
+      _______, _______, _______, _______, _______,       UNDO,     CUT,    COPY,   PASTE, KC_PSCR,
                                  _______, _______,    _______, _______
    ),
    [_FNC] = LAYOUT(
