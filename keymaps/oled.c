@@ -158,12 +158,12 @@ static void print_status_narrow(void) {
     render_logo();
     oled_write_P(PSTR("sweep"), false);
 
-    oled_set_cursor(0, 5);
+    oled_set_cursor(0, 6);
 
     /* Print current layer */
     oled_write("LAYER", false);
 
-    oled_set_cursor(0, 6);
+    oled_set_cursor(0, 7);
 
     switch (get_highest_layer(layer_state)) {
         case 0:
@@ -192,7 +192,7 @@ static void print_status_narrow(void) {
     }
 
     /* caps lock */
-    oled_set_cursor(0, 8);
+    oled_set_cursor(0, 9);
     oled_write("CPSLK", is_caps_word_on());
 
     /* KEYBOARD PET RENDER START */
