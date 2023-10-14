@@ -55,12 +55,10 @@ enum layers {
 // Combos
 const uint16_t PROGMEM spe_combo[] = {THUMB_1, THUMB_2, COMBO_END};
 const uint16_t PROGMEM mus_combo[] = {THUMB_3, THUMB_4, COMBO_END};
-const uint16_t PROGMEM backspace_combo[] = {KC_I, KC_O, COMBO_END};
 
 combo_t key_combos[] = {
   COMBO(spe_combo, SPE),
   COMBO(mus_combo, MUS),
-  COMBO(backspace_combo, KC_BSPC),
 };
 
 enum custom_keycodes {
