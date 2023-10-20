@@ -80,17 +80,17 @@ void openApplication(char* applicationName) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case HYPR(KC_K):
+    case HYPR(ALT_K):
         if (record->event.pressed) {
             openApplication("chr");
         }
         break;
-    case HYPR(KC_J):
+    case HYPR(GUI_J):
         if (record->event.pressed) {
             openApplication("idea");
         }
         break;
-    case HYPR(KC_L):
+    case HYPR(CTL_L):
         if (record->event.pressed) {
             openApplication("slack");
         }
