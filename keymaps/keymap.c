@@ -80,17 +80,17 @@ void openApplication(char* applicationName) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case CHROME:
+    case HYPR(KC_K):
         if (record->event.pressed) {
             openApplication("chr");
         }
         break;
-    case IDEA:
+    case HYPR(KC_J):
         if (record->event.pressed) {
             openApplication("idea");
         }
         break;
-    case SLACK:
+    case HYPR(KC_L):
         if (record->event.pressed) {
             openApplication("slack");
         }
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_BASE] = LAYOUT(
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Z,    KC_U,    KC_I,    KC_O,    KC_P,
         SFT_A,   CTL_S,   ALT_D,   GUI_F,    KC_G,       KC_H,   GUI_J,   ALT_K,   CTL_L, SFT_SCLN,
-         KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_QUES,
+         KC_Y,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_HYPR,
                                  THUMB_1, THUMB_2,    THUMB_3, THUMB_4
    ),
    [_EXT] = LAYOUT(
