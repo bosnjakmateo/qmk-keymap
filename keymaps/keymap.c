@@ -20,7 +20,7 @@ enum layers {
 #define MUS MO(_MUS)
 
 // Mod key Aliases
-#define THUMB_1 LT(FNC, KC_TAB)
+#define THUMB_1 LSFT_T(KC_TAB)
 #define THUMB_2 LT(EXT, KC_SPC)
 #define THUMB_3 LT(SYM, KC_ENT)
 #define THUMB_4 LT(NUM, KC_BSPC)
@@ -131,15 +131,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  THUMB_1, THUMB_2,    THUMB_3, THUMB_4
    ),
    [_EXT] = LAYOUT(
-       KC_ESC, KC_PAUS,  KC_INS, GUI_TAB,   HYP_0,    KC_PGUP, KC_PGDN, KC_HOME,  KC_END, CW_TOGG,
-      _______, _______, _______, _______, _______,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_DEL,
+       KC_ESC, KC_MRWD,  KC_MPLY, KC_MFFD,   HYP_0,    KC_PGUP, KC_PGDN, KC_HOME,  KC_END, CW_TOGG,
+      _______, KC_VOLD, _______, KC_VOLU, _______,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_DEL,
          UNDO,     CUT,    COPY,   PASTE, _______,    _______, _______, _______, _______, KC_PSCR,
                                  _______, _______,    _______, _______
    ),
-   [_FNC] = LAYOUT(
-      _______, KC_MRWD, KC_MPLY, KC_MFFD, _______,     KC_F12,   KC_F7,   KC_F8,   KC_F9, _______,
-      _______, _______, _______, _______, _______,     KC_F11,   KC_F4,   KC_F5,   KC_F6, _______,
-      _______, KC_VOLD, _______, KC_VOLU, _______,     KC_F10,   KC_F1,   KC_F2,   KC_F3, _______,
+   [_NUM] = LAYOUT(
+      KC_F12,   KC_F7,   KC_F8,   KC_F9, _______,     _______, KC_7, KC_8, KC_9, _______,
+      KC_F11,   KC_F4,   KC_F5,   KC_F6, _______,     _______, KC_4, KC_5, KC_6, KC_COMM,
+      KC_F10,   KC_F1,   KC_F2,   KC_F3, _______,      KC_0, KC_1, KC_2, KC_3,    KC_DOT,
                                  _______, _______,    _______, _______
    ),
    [_SYM] = LAYOUT(
@@ -148,21 +148,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_PIPE, KC_TILD, KC_CIRC,  KC_GRV, KC_LCBR,    KC_RCBR,  KC_EQL, KC_COMM,  KC_DOT, KC_BSLS,
                                  _______, _______,    _______, _______
    ),
-   [_NUM] = LAYOUT(
-      _______, _______, _______, KC_PAST, KC_PPLS,    _______,    KC_7,    KC_8,    KC_9, _______,
-      _______, _______, _______, LGUI_T(KC_PSLS), KC_PMNS,    _______,    KC_4,    KC_5,    KC_6, _______,
-      _______, _______, KC_PEQL, KC_COMM,  KC_DOT,       KC_0,    KC_1,    KC_2,    KC_3, _______,
-                                 _______, _______,    _______, _______
-   ),
    [_SPE] = LAYOUT(
       _______, _______, _______, _______, _______,      HYP_1,   HYP_2,   HYP_3,   HYP_4,   HYP_5,
       _______, _______, _______, _______, _______,    _______,    IDEA,  CHROME,   SLACK, _______,
-      _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
-                                 _______, _______,    _______, _______
-   ),
-   [_MUS] = LAYOUT(
-      _______, _______, _______, _______, _______,    KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, _______,
-      _______, KC_BTN1, KC_BTN3, KC_BTN2, _______,    KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, _______,
       _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______,
                                  _______, _______,    _______, _______
    ),
